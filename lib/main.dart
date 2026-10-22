@@ -8,12 +8,22 @@ import 'package:get/get.dart';
 import 'features/class_section/controllers/agora_live_class_controller.dart';
 import 'package:school_student_app/features/class_section/views/dummy_agora_class_view.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(
     AgoraLiveClassController(),
     permanent: true,
   );
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
 
   runApp(const SchoolStudentApp());
 }

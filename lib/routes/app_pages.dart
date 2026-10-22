@@ -1,5 +1,6 @@
 
 import 'package:get/get.dart';
+import 'package:school_student_app/features/teacher/class_module/views/teacher_login_view.dart';
 
 import '../features/class_section/bindings/class_section_binding.dart';
 import '../features/class_section/bindings/assigned_subjects_binding.dart';
@@ -30,7 +31,14 @@ import '../features/teacher/class_module/views/teacher_zoom_live_classes_view.da
 
 import '../features/class_section/views/agora_live_classes_view.dart';
 import '../features/teacher/class_module/views/teacher_agora_live_classes_view.dart';
-
+// import '../features/teacher/class_module/views/teacher_chapter_folders_view.dart';
+// import '../features/teacher/class_module/views/teacher_chapter_lectures_view.dart';
+// import '../features/teacher/class_module/views/teacher_login_view.dart';
+import 'package:school_student_app/features/teacher/class_module/bindings/teacher_quizzes_binding.dart';
+import 'package:school_student_app/features/teacher/class_module/views/teacher_quizzes_view.dart';
+import '../features/teacher/class_module/bindings/teacher_create_quiz_binding.dart';
+import '../features/teacher/class_module/views/teacher_create_quiz_view.dart';
+import '../features/teacher/class_module/views/teacher_manage_quiz_view.dart';
 
 
 class AppRoutes {
@@ -55,6 +63,15 @@ class AppRoutes {
   static const String teacherAgoraLiveClasses =
       '/teacher-agora-live-classes';
 
+  static const String teacherChapterFolders =
+      '/teacher-chapter-folders';
+
+  static const String teacherChapterLectures =
+      '/teacher-chapter-lectures';
+  static const String teacherLogin = '/teacher-login';
+  static const String teacherQuizzes = '/teacher-quizzes';
+  static const String teacherCreateQuiz = '/teacher-create-quiz';
+  static const String teacherManageQuiz = '/teacher-manage-quiz';
 
 
   static final List<GetPage<dynamic>> pages = [
@@ -131,6 +148,42 @@ class AppRoutes {
       name: AppRoutes.teacherAgoraLiveClasses,
       page: () => const TeacherAgoraLiveClassesView(),
     ),
+    // GetPage(
+    //   name: AppRoutes.teacherChapterFolders,
+    //   page: () => const TeacherChapterFoldersView(),
+    //
+    // ),
+    //   GetPage(
+    //     // name: '/teacher-login',
+    //     name: teacherLogin,
+    //     page: () => TeacherLoginView(),
+    //
+    //   ),
+
+      // Connect this route to your EXISTING teacher dashboard widget.
+      // GetPage(
+      //   name: '/teacher-dashboard',
+      //   // name: AppRoutes.teacherLogin,
+      //   page: () => const TeacherClassesView(),
+      // ),
+    GetPage(
+      name: AppRoutes.teacherQuizzes,
+      page: () => const TeacherQuizzesView(),
+      binding: TeacherQuizzesBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.teacherCreateQuiz,
+      page: () => const TeacherCreateQuizView(),
+      binding: TeacherCreateQuizBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.teacherManageQuiz,
+      page: () => const TeacherManageQuizView(),
+    ),
+    // GetPage(
+    //   name: AppRoutes.teacherChapterLectures,
+    //   page: () => const TeacherChapterLectureView(),
+    // ),
 
   ];
 }
