@@ -31,8 +31,8 @@ import '../features/teacher/class_module/views/teacher_zoom_live_classes_view.da
 
 import '../features/class_section/views/agora_live_classes_view.dart';
 import '../features/teacher/class_module/views/teacher_agora_live_classes_view.dart';
-// import '../features/teacher/class_module/views/teacher_chapter_folders_view.dart';
-// import '../features/teacher/class_module/views/teacher_chapter_lectures_view.dart';
+import '../features/teacher/class_module/views/teacher_chapter_folders_view.dart';
+import '../features/teacher/class_module/views/teacher_chapter_lectures_view.dart';
 // import '../features/teacher/class_module/views/teacher_login_view.dart';
 import 'package:school_student_app/features/teacher/class_module/bindings/teacher_quizzes_binding.dart';
 import 'package:school_student_app/features/teacher/class_module/views/teacher_quizzes_view.dart';
@@ -135,10 +135,10 @@ class AppRoutes {
       name: zoomLiveClasses,
       page: () => const ZoomLiveClassesView(),
     ),
-    GetPage(
-      name: teacherZoomLiveClasses,
-      page: () => const TeacherZoomLiveClassesView(),
-    ),
+    // GetPage(
+    //   name: teacherZoomLiveClasses,
+    //   page: () => const TeacherZoomLiveClassesView(),
+    // ),
 
     GetPage(
       name: AppRoutes.agoraLiveClasses,
@@ -148,11 +148,14 @@ class AppRoutes {
       name: AppRoutes.teacherAgoraLiveClasses,
       page: () => const TeacherAgoraLiveClassesView(),
     ),
-    // GetPage(
-    //   name: AppRoutes.teacherChapterFolders,
-    //   page: () => const TeacherChapterFoldersView(),
-    //
-    // ),
+    GetPage(
+      name: AppRoutes.teacherChapterFolders,
+      page: () =>  TeacherChapterFoldersView(
+        className: "Class 8",
+        subject: "Science",
+      ),
+
+    ),
     //   GetPage(
     //     // name: '/teacher-login',
     //     name: teacherLogin,

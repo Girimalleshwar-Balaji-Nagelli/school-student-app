@@ -10,6 +10,7 @@ import 'package:school_student_app/features/class_section/views/dummy_agora_clas
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'features/teacher/class_module/controllers/teacher_video_lectures_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,10 @@ void main() async {
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+  );
+  Get.put(
+    TeacherVideoLecturesController(),
+    permanent: true,
   );
 
 

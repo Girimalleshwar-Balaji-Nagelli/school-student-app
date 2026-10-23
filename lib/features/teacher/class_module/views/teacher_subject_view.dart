@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../models/teacher_class_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../views/teacher_video_subjects_view.dart';
 
 class TeacherSubjectView extends StatelessWidget {
   const TeacherSubjectView({super.key});
@@ -147,7 +148,16 @@ class TeacherSubjectView extends StatelessWidget {
             description: 'Create assessments and review results',
             color: const Color(0xFFFFEBDD),
             iconColor: const Color(0xFFDB783E),
-            onTap: () => _showComingNext('Quizzes'),
+            // onTap: () => _showComingNext('Quizzes'),
+            onTap: () {
+              Get.toNamed(
+                AppRoutes.teacherQuizzes,
+                arguments: {
+                  'schoolClass': schoolClass,
+                  'subject': subject,
+                },
+              );
+            },
           ),
           _activityTile(
             icon: Icons.video_library_outlined,
@@ -155,7 +165,23 @@ class TeacherSubjectView extends StatelessWidget {
             description: 'Publish recorded lessons for students',
             color: const Color(0xFFE0F5EA),
             iconColor: const Color(0xFF16835C),
-            onTap: () => _showComingNext('Video Lectures'),
+              onTap: () {
+                // Get.toNamed(
+                //   AppRoutes.teacherChapterFolders,
+                // );
+                Get.to(
+                      () => TeacherVideoSubjectsView(
+                    className: 'Class 8',
+                    subjects: ['Mathematics', 'Science'],
+                    classSubjects: {
+                      'Class 8': ['Mathematics', 'Science'],
+                      'Class 9': ['Mathematics', 'Physics', 'Biology'],
+                      'Class 10': ['English', 'Science', 'Mathematics'],
+                    },
+                  ),
+                );
+              },
+
           ),
         ],
       ),

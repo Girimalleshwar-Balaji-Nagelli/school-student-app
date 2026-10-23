@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../core/theme/app_theme.dart';
 import '../models/subject_model.dart';
 import '../../../routes/app_pages.dart';
+import 'package:school_student_app/features/class_section/views/student_video_lectures_view.dart';
 
 class SubjectDetailsView extends StatelessWidget {
   const SubjectDetailsView({super.key});
@@ -126,10 +127,27 @@ class SubjectDetailsView extends StatelessWidget {
                 },
               ),
 
+              // const SizedBox(height: 28),
 
-              const SizedBox(height: 28),
+              const SizedBox(height: 14),
 
+              _buildFeatureCard(
+                icon: Icons.video_library_rounded,
+                title: 'Video Lectures',
+                description: 'Watch recorded lessons across your subjects',
+                count: 0,
+                onTap: () {
+                  Get.to(
+                        () => const StudentVideoLecturesView(
+                      className: 'Class 8',
+                      sectionName: 'B',
+                      assignedSubjects: ["Science" ,"Mathematics" ,"Physics"],
+                    ),
+                  );
+                },
+              ),
 
+              const SizedBox(height: 14),
 
               // _buildProgressCard(),
 
